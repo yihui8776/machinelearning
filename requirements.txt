@@ -1,0 +1,11 @@
+numpy
+scipy
+matplotlib
+sklearn
+pandas
+Pillow
+scikit-learn
+theano
+keras
+torch
+torchvision
