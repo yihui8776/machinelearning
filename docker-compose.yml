@@ -9,7 +9,7 @@ services:
     environment:
       - PASSWORD=ai1234
     volumes:
-      - "/opt/machinelearning/notebooks:/notebooks"
+      - "./notebooks:/notebooks"
     command:
       - "/run_jupyter.sh"
       - "--allow-root"

@@ -20,8 +20,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         && \
        rm -rf /var/lib/apt/lists/*
 RUN rm -rf /usr/bin/lsb_release
-COPY requirements.txt /requirements.txt
 
+# 重新notebook配置
+COPY jupyter_notebook_config.py /root/.jupyter/
+
+# 拷贝 sample notebooks.
+COPY notebooks /notebooks
+
+# Jupyter运行脚本
+COPY run_jupyter.sh /
+RUN chmod +x  /run_jupyter.sh
+RUN chmod +x /notebooks
+
+# 根据需要增加Python库
+COPY requirements.txt /requirements.txt
 
 RUN pip3 install --upgrade pip && \
     pip3 install --no-cache-dir -r /requirements.txt
